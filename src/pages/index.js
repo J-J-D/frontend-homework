@@ -23,38 +23,65 @@ export default function Home() {
     setZipcode("");
   };
 
+  // const getLatLon = async () => {
+  //   const response = await axios.get(
+  //     "https://api.openweathermap.org/geo/1.0/zip",
+  //     {
+  //       params: {
+  //         zip: zipcode,
+  //         appid: process.env.NEXT_PUBLIC_OPENWEATHER_KEY,
+  //       },
+  //     }
+  //   );
+
   const getLatLon = async () => {
-    const response = await axios.get(
-      "https://api.openweathermap.org/geo/1.0/zip",
-      {
+    let response;
+    try {
+      response = await axios.get("https://api.openweathermap.org/geo/1.0/zip", {
         params: {
           zip: zipcode,
           appid: process.env.NEXT_PUBLIC_OPENWEATHER_KEY,
         },
+      });
+    } catch (err) {
+      if (err.response.status === 400) {
+        console.error("Invalid Zip");
+        setZipcode("Enter a valid Zipcode");
+      } else if (err.response.status === 404) {
+        console.error("Zip Not Found");
+        setZipcode("Can't find that zipcode");
+      } else {
+        throw err;
       }
-    );
+    }
 
-    const lat = await response.data.lat;
-    const lon = await response.data.lon;
-    setCity(response.data.name);
-    return { lat: lat, lon: lon };
+    if (response) {
+      const lat = await response.data.lat;
+      const lon = await response.data.lon;
+      setCity(response.data.name);
+      return { lat: lat, lon: lon };
+    } else {
+      return null;
+    }
   };
 
   const getCurrentWeather = async () => {
     const latLon = await getLatLon();
-    const response = await axios.get(
-      "https://api.openweathermap.org/data/3.0/onecall",
-      {
-        params: {
-          appid: process.env.NEXT_PUBLIC_OPENWEATHER_KEY,
-          lat: latLon.lat,
-          lon: latLon.lon,
-          exclude: "minutely,hourly",
-          units: "imperial",
-        },
-      }
-    );
-    setData(response.data);
+    if (latLon) {
+      const response = await axios.get(
+        "https://api.openweathermap.org/data/3.0/onecall",
+        {
+          params: {
+            appid: process.env.NEXT_PUBLIC_OPENWEATHER_KEY,
+            lat: latLon.lat,
+            lon: latLon.lon,
+            exclude: "minutely,hourly",
+            units: "imperial",
+          },
+        }
+      );
+      setData(response.data);
+    }
   };
 
   return (
