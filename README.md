@@ -1,31 +1,28 @@
-# Front End Assignment
+Hi Skyward!   Thank you for checking out my Weather app!   As a new developer, I think one of the most important skills I can conquer is adapting to new tech quickly.   So I decided to use this assignment to add more tools to my personal stack. Welcome to my first attempt at using Next.js and Tailwind CSS.   
 
-This is your chance to show off your hands on skills to us. You will develop a small app and present it to us. Just make sure that it runs and we can actually use it beforehand.
-It should take you no more than a few hours to complete the assignment, but any extra polish or features you might want to put in will not go unnoticed.
+TO RUN:
 
-## The assignment
+1) Clone this repo into a root folder
+2) Go into your new folder 
+3) Create .env file and add this Variable:
+      NEXT_PUBLIC_OPENWEATHER_KEY = {your personal OpenWeatherAPI key}
+      (Note your API key must work with the One Call by Call plan.  If you need one, contact me by email.)
+4) Type $npm run start 
+      (Note you may need to $npm install axios to get it to work)
+5)Visit localhost:3000 on your machine and check it out
 
-+ Solution should be responsive
-+ Use the [Open Weather API](https://openweathermap.org/api) with the default location set to New York, NY, and allow the user to change the location by zip code
-+ Show the "current" conditions for New York:
-  + Location (ie. New York, NY, USA)
-  + Current weather description (ie. sunny)
-  + Current temperature
-  + Today's high temperature
-  + Today's low temperature
-+ Allow the user to toggle more data in the current conditions area:
-    + Wind Speed
-    + Humidity
-    + Pressure
-    + Sunrise/Sunset Time
-+ Show the 7 Day forecast
+ASSUMPTIONS:
 
-When in doubt, just keep an assumptions log and move on. We value working software and decision making skills.
+1) English and Farenheit are the preferred currency
+2) I am the only developer working on this so a Docker container is not needed
 
-## Requirements
+WAYS TO IMPROVE STILL:
 
-We like React here at Skyward, but feel free to use any framework. Also, make sure your application runs and include instructions in Readme on how to run it! 
+1) Sunrise and Sunset Times are in Military Time and set to timezone of the client not the time zone for the city on display 
+2) Needs a spinner while loading in case of delayed response
+3) Additional Details button could look more like a button
+4) Error Handling could be more robust and provde client more info
 
-## Submission
+Thank you so much and I look forward to talking with you soon!
 
-To complete your homework, please fork this repo and commit your work to your fork. When you are ready for us to look at it, give us access to your fork so we can review and run it.
+
