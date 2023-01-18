@@ -9,7 +9,7 @@ TO RUN:
       (Note your API key must work with the One Call by Call plan.  If you need one, contact me by email.)
 4) Type $npm run start 
       (Note you may need to $npm install axios to get it to work)
-5)Visit localhost:3000 on your machine and check it out
+5) Visit localhost:3000 on your machine and check it out
 
 ASSUMPTIONS:
 
@@ -18,7 +18,7 @@ ASSUMPTIONS:
 
 WAYS TO IMPROVE STILL:
 
-1) Sunrise and Sunset Times are in Military Time and set to timezone of the client not the time zone for the city on display 
+1) Sunrise and Sunset Times are in Military Time and set to time zone of the client not the time zone for the city on display 
 2) Needs a spinner while loading in case of delayed response
 3) Additional Details button could look more like a button
 4) Error Handling could be more robust and provde client more info
