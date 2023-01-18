@@ -7,7 +7,7 @@ TO RUN:
 3) Create .env file and add this Variable:
       NEXT_PUBLIC_OPENWEATHER_KEY = {your personal OpenWeatherAPI key}
       (Note your API key must work with the One Call by Call plan.  If you need one, contact me by email.)
-4) Type $npm run start 
+4) Type $npm run dev 
       (Note you may need to $npm install axios to get it to work)
 5) Visit localhost:3000 on your machine and check it out
 
@@ -21,7 +21,7 @@ WAYS TO IMPROVE STILL:
 1) Sunrise and Sunset Times are in Military Time and set to time zone of the client not the time zone for the city on display 
 2) Needs a spinner while loading in case of delayed response
 3) Additional Details button could look more like a button
-4) Error Handling could be more robust and provde client more info
+4) Error Handling!!! I used npm run build and npm run start and that keeps the app from crashing when it gets an API error.  On npm run dev the lack of error handling in the source code causes it to crash when there is inavlid data in the search bar.
 
 Thank you so much and I look forward to talking with you soon!
 

@@ -99,7 +99,7 @@ export default function Home() {
       {data.daily && <Forecasts data={data.daily.slice(1)} />}
       {/* ADDITIONAL DETAILS */}
       <button
-        className="float-right m-auto relative z-10  text-white pr-14"
+        className="float-right m-auto relative z-10 text-white pr-14"
         onClick={() => setshowExtra(!showExtra)}
       >
         Additional Details
